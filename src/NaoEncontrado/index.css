@@ -1,0 +1,9 @@
+.Page-Not-Found{
+
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+    flex-direction: column;
+
+}
