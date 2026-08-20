@@ -1,9 +1,9 @@
-import './index.css';
+import './index.scss';
 import { Link } from 'react-router-dom';
 
 export default function App() {
   return (
-    <div className="App">
+    <div className="pagina-app">
      
     <h1>React</h1>
 
