@@ -8,3 +8,84 @@
   padding: 0px;
   font-family: "poppins";
 }
+
+a,a:visited a:link{
+
+  text-decoration: none;
+  color: black;
+
+}
+
+.pagina {
+
+
+background-color: rgb(112, 112, 112);
+  color: white;
+  min-height: 100vh;
+
+
+  .cabecalho{
+    background-color: rgb(255, 255, 255);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 30px 60px;
+
+      h1{
+
+        color: black;
+    font-weight: 600;
+    font-size: 20px;
+
+      }
+
+  }
+
+  .secao{ 
+
+    background-color: white;
+    padding: 40px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 30px 60px;
+    border-radius: 6px;
+
+      h1{
+
+        color: black;
+      font-weight: 600;
+      font-size: 20px;
+      
+
+  } 
+
+
+  input{
+    width: 68%;
+   padding: 5px;
+   border-color: rgb(112, 112, 112);
+   font: 400 14px/1.5 "poppins";
+   outline: none;
+  }
+
+  button{
+
+    padding: 5px;
+    color: #000000;
+    border-color: rgb(112, 112, 112);
+    font: 400 14px/1.5 "poppins";
+    cursor: pointer;
+  }
+
+  select{
+    width: 79%;
+    padding: 5px;
+    border-color: rgb(112, 112, 112);
+    font: 400 14px/1.5 "poppins";
+    outline: none;
+
+  }
+
+}
+
+}

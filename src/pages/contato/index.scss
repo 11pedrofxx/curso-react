@@ -2,10 +2,19 @@
 
     text-align: center;
 
+    .cabecalho{
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+    }
 
     .foto{
 
-    width: 100px;
+    width: 60px;
 
 }
 
