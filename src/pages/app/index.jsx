@@ -1,6 +1,23 @@
 import './index.scss';
 import { Link } from 'react-router-dom';
 
+function clicou() {
+  alert('Conteudo enviado com sucesso!');
+}
+
+function mudou(e) {
+
+  let novovalor = e.target.value;
+  alert('Você alterou o valor do input para: ' + novovalor);
+
+  if (novovalor === '') {
+
+    alert('Você apagou o valor do input!');
+
+  }
+
+}
+
 export default function App() {
   return (
     <div className="pagina-app pagina">
@@ -12,8 +29,8 @@ export default function App() {
       <h1>Curso de React JS</h1>
       <h1 className="Style"><Link to="/Contato">Ir para contato</Link></h1>
 
-      <input placeholder='Digite aqui' type="text"/>
-      <button>Enviar</button>
+      <input onChange={mudou} placeholder='Digite aqui' type="text"/>
+      <button onClick={clicou}>Enviar</button>
 
       <br />  
       <select>
@@ -23,6 +40,8 @@ export default function App() {
       </select>
 
     </section>
+
+    <Link to="/Eventos">Ir para eventos</Link>
 
     </div>
   );

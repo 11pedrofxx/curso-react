@@ -70,7 +70,7 @@ export default function Eventos() {
                 <input type="radio" name="opcao"/> opção 2
             </div>
 
-            <textarea onChange={alterou} placeholder='Digite seu texto'></textarea>e
+            <textarea onChange={alterou} placeholder='Digite seu texto'></textarea>
 
             <button onClick={clicou} className='botao-enviar'>Enviar</button>
 
