@@ -42,6 +42,8 @@ export default function App() {
     </section>
 
     <Link to="/Eventos">Ir para eventos</Link>
+      <br />
+    <Link to={'varEstado'}>Ir para variavel de estado</Link>
 
     </div>
   );
