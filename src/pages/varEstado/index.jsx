@@ -1,5 +1,6 @@
 import './index.scss';
-import { use, useState } from 'react';
+import {useState } from 'react';
+import { tratarnumero } from '../../utils/tratarnumero.js';
 
 export default function VarEstado() {
 
@@ -15,8 +16,10 @@ export default function VarEstado() {
     
     const [descS5, setdescS5] = useState('Titulo');
 
+    const [num1, setnum1] = useState(0);
+    const [num2, setnum2] = useState(0);
+    const [resp, setresp] = useState(0);
 
-    
 
     function aumentar() {
 
@@ -54,7 +57,33 @@ export default function VarEstado() {
 
     }
 
-    
+    function soma() {
+
+        let soma = tratarnumero(num1) + tratarnumero(num2);
+        setresp(soma)
+
+    }
+
+    function subtrair() {
+
+        let subtracao = tratarnumero(num1) - tratarnumero(num2);
+        setresp(subtracao)
+
+    }
+
+    function multiplicar() {
+
+        let multi = tratarnumero(num1) * tratarnumero(num2);
+        setresp(multi)
+
+    }
+
+    function divisao() {
+
+        let divisao = tratarnumero(num1) / tratarnumero(num2);
+        setresp(divisao)
+
+    }
 
     
 
@@ -65,6 +94,27 @@ export default function VarEstado() {
         <div className='pagina-var-estado pagina'>
 
         <header className='cabecalho'><h1>Var Estado</h1></header>
+
+            <section className='secao calculadora-container'>
+                <h1 className='calc-titulo'>CALCULADORA</h1>
+
+                <div className='calc-entradas'>
+                    <input className='calc-input' type="text" value={num1} onChange={e => setnum1(e.target.value)} />
+                    <input className='calc-input' type="text" value={num2} onChange={e => setnum2(e.target.value)} />
+                    <div className='calc-resultado'> = </div> 
+                    <div> {resp} </div>
+                </div>
+
+                <div>
+                    <button className='calc-botao' onClick={soma}> + </button>
+                    <button className='calc-botao' onClick={subtrair}> - </button>
+                </div>
+                    <div>
+                        <button className='calc-botao' onClick={multiplicar}> x </button>
+                        <button className='calc-botao' onClick={divisao}> ÷ </button>
+                    </div> 
+
+            </section>
 
         <section className='secao'>
             
@@ -80,7 +130,7 @@ export default function VarEstado() {
 
             </div>
             
-            <div className='a' ><button onClick={ () => setContador} >Reset</button></div>
+            <div className='a' ><button onClick={ () => setContador(0)} >Reset</button></div>
 
         </section>
 
