@@ -1,6 +1,7 @@
 import './index.scss';
 import {useState } from 'react';
 import { tratarnumero } from '../../utils/tratarnumero.js';
+import calcularValorIngresso from '../../service/ingresso.js';
 
 export default function VarEstado() {
 
@@ -19,7 +20,11 @@ export default function VarEstado() {
     const [num1, setnum1] = useState(0);
     const [num2, setnum2] = useState(0);
     const [resp, setresp] = useState(0);
-
+    
+    const [ValorIng, setValorIng] = useState(0);
+    const [meioIng, setmeioIng] = useState(false);
+    const [cupom, setcupom] = useState('');
+    const [totaling, settotaling] = useState(0);
 
     function aumentar() {
 
@@ -85,8 +90,11 @@ export default function VarEstado() {
 
     }
 
-    
-
+    function calcIngresso() {
+        
+        let total = calcularValorIngresso(meioIng, ValorIng, cupom);
+        settotaling(total);
+    }
     
 
     return (
@@ -94,6 +102,31 @@ export default function VarEstado() {
         <div className='pagina-var-estado pagina'>
 
         <header className='cabecalho'><h1>Var Estado</h1></header>
+
+        <section className='secao ingresso'>
+
+            <h1>Venda Igressos</h1>
+            <label>Quantidade Ingressos</label>
+            <div className='comprarIngresso' >
+                <button onClick={ e => setValorIng(ValorIng + 1) } > + </button>
+                <input type="text" value={ValorIng}/>
+                <button onClick={ e => setValorIng(ValorIng - 1) } > - </button>
+            </div>
+
+            <div className='meiaentrada' >
+                <label>Meia Entrada</label>
+                <input checked={meioIng} onChange={e => setmeioIng(e.target.checked)} type="checkbox" />
+            </div>
+
+            <div className='cupom' >
+                <label >Cupom de desconto</label>
+                <input value={cupom} onChange={e => setcupom(e.target.value)}  type="text" />
+            </div>
+
+            <button onClick={calcIngresso} >calcular</button>
+            <h2 value={totaling}>Total a pagar: {totaling}</h2>
+
+        </section>
 
             <section className='secao calculadora-container'>
                 <h1 className='calc-titulo'>CALCULADORA</h1>
