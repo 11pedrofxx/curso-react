@@ -26,13 +26,16 @@ export default function VarEstado() {
     const [cupom, setcupom] = useState('');
     const [totaling, settotaling] = useState(0);
 
+    const[novameta, setnovameta] = useState('');
+    const [listaMetas, setlistaMetas] = useState([]);
+
     function aumentar() {
 
         setContador(contador + 1)
 
     }
 
-    function diminuir() {   
+    function diminuir() {
         if (contador > 0) {
         setContador(contador - 1)
         }
@@ -48,7 +51,7 @@ export default function VarEstado() {
     }
 
     
-     function AlterarTituloS3(e){
+    function AlterarTituloS3(e){
 
         let novovalor = e.target.value;
         settituloS3(novovalor); 
@@ -95,6 +98,25 @@ export default function VarEstado() {
         let total = calcularValorIngresso(meioIng, ValorIng, cupom);
         settotaling(total);
     }
+
+    function addMeta() {
+    
+        if (novameta != '') {
+        setlistaMetas([...listaMetas, novameta])
+        setnovameta('')
+        }
+
+    }
+
+    function teclaApertada(e) {
+
+        if (e.key == 'Enter') {
+
+            addMeta()
+
+        }
+
+    }
     
 
     return (
@@ -103,11 +125,36 @@ export default function VarEstado() {
 
         <header className='cabecalho'><h1>Var Estado</h1></header>
 
+        <section className='secao metas'>
+
+        <div>
+            <h1>METAS PARA 2030</h1>
+            <input type="text" value={novameta} onKeyUp={teclaApertada} onChange={e => setnovameta(e.target.value)}/>
+            <button onClick={addMeta}>Postar meta</button>
+        </div>
+
+
+        <div className='minhasmetas'>    
+
+            <ul>
+
+             {listaMetas.map(item => 
+
+                <li> {item} </li>
+
+             )}
+
+            </ul>
+
+        </div>
+
+        </section>
+
         <section className='secao ingresso'>
 
             <h1>Venda Igressos</h1>
             <label>Quantidade Ingressos</label>
-            <div className='comprarIngresso' >
+            <div className='comprarIngresso'>
                 <button onClick={ e => setValorIng(ValorIng + 1) } > + </button>
                 <input type="text" value={ValorIng}/>
                 <button onClick={ e => setValorIng(ValorIng - 1) } > - </button>
@@ -115,16 +162,16 @@ export default function VarEstado() {
 
             <div className='meiaentrada' >
                 <label>Meia Entrada</label>
-                <input checked={meioIng} onChange={e => setmeioIng(e.target.checked)} type="checkbox" />
+                <input checked={meioIng} onChange={e => setmeioIng(e.target.checked)} type="checkbox"/>
             </div>
 
             <div className='cupom' >
                 <label >Cupom de desconto</label>
-                <input value={cupom} onChange={e => setcupom(e.target.value)}  type="text" />
+                <input value={cupom} onChange={e => setcupom(e.target.value)}  type="text"/>
             </div>
 
             <button onClick={calcIngresso} >calcular</button>
-            <h2 value={totaling}>Total a pagar: {totaling}</h2>
+            <h2 value={totaling}>Total a pagar: {totaling} </h2>
 
         </section>
 
