@@ -28,6 +28,8 @@ export default function VarEstado() {
 
     const[novameta, setnovameta] = useState('');
     const [listaMetas, setlistaMetas] = useState([]);
+    const [editando, seteditando] = useState(-1)
+
 
     function aumentar() {
 
@@ -102,19 +104,46 @@ export default function VarEstado() {
     function addMeta() {
     
         if (novameta != '') {
-        setlistaMetas([...listaMetas, novameta])
-        setnovameta('')
+            if (editando === -1) {
+
+                setlistaMetas([...listaMetas, novameta])
+                setnovameta('')
+
+            }
+
+            else {
+
+                listaMetas[editando] = novameta
+                setlistaMetas([...listaMetas])
+                seteditando(-1)
+
+            }
         }
 
     }
 
     function teclaApertada(e) {
 
-        if (e.key == 'Enter') {
+        if (e.key === 'Enter') {
 
             addMeta()
 
         }
+
+    }
+
+    function removerMeta(pos) {
+
+        listaMetas.splice(pos, 1);
+        setlistaMetas([...listaMetas])
+        alert(`Item removido na posição ${pos}`)
+
+    }
+
+    function editarMeta(pos) {
+
+        setnovameta(listaMetas[pos])
+        seteditando(pos)
 
     }
     
@@ -135,12 +164,16 @@ export default function VarEstado() {
 
 
         <div className='minhasmetas'>    
-
+        
             <ul>
 
-             {listaMetas.map(item => 
+             {listaMetas.map((item, pos) => 
 
-                <li> {item} </li>
+                <li key={pos}>
+                <i className='fa fa-trash-can' onClick={() => removerMeta(pos)}></i> &nbsp;
+                {item} &nbsp;
+                <i class="fa-regular fa-pen-to-square" onClick={() => editarMeta(pos)} ></i>
+                </li>
 
              )}
 
