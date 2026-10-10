@@ -30,6 +30,11 @@ export default function VarEstado() {
     const [listaMetas, setlistaMetas] = useState([]);
     const [editando, seteditando] = useState(-1)
 
+    const [plano, setplano] = useState('')
+    const [situacao, setsituacao] = useState('')
+    const [cor, setcor] = useState('')
+    const [listaPlanos, setlistaPlanos] = useState([])
+
 
     function aumentar() {
 
@@ -147,6 +152,23 @@ export default function VarEstado() {
 
     }
 
+    function addPlano() {
+
+        let novoPlano = {
+
+            plano: plano,
+            situacao: situacao,
+            cor: cor
+
+        }
+
+        setlistaPlanos([...listaPlanos, novoPlano])
+        setplano('');
+        setsituacao('')
+        setcor(''); 
+
+    }
+
     return (
 
         <div className='pagina-var-estado pagina'>
@@ -155,21 +177,24 @@ export default function VarEstado() {
 
         <section className='secao planos'>
 
-            <input type="text" placeholder='Meu plano aqui'/>
-            <input type="text" placeholder='Situação do plano'/>
-            <input type="text" placeholder='Cor de identificação'/>
-            <button>Adicionar Plano </button>
+            <input type="text" placeholder='Meu plano aqui' value={plano} onChange={e => setplano(e.target.value)}/>
+            <input type="text" placeholder='Situação do plano' value={situacao} onChange={e => setsituacao(e.target.value)}/>
+            <input type="text" placeholder='Cor de identificação' value={cor} onChange={e => setcor(e.target.value)}/>
+            <button onClick={addPlano}>Adicionar Plano </button>
         
 
         <div className='organizarLista' >
             &nbsp;
+            {listaPlanos.map(item =>
 
             <div className='lista'>
-                <h1>Finalizar Frei</h1>
-                <h2>Em andamento </h2>
-                <div className='cor' >&nbsp; </div>
+                <h1> {item.plano} </h1>
+                <h2> {item.situacao} </h2>
+                <div className='cor' style={{backgroundColor: item.cor}} >&nbsp; </div>
 
             </div>
+
+            )}
             
         </div>
         </section>
