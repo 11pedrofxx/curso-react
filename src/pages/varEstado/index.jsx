@@ -169,6 +169,13 @@ export default function VarEstado() {
 
     }
 
+    function removerPlano(pos) {
+
+        listaPlanos.splice(pos, 1);
+        setlistaPlanos([...listaPlanos])
+
+    }
+
     return (
 
         <div className='pagina-var-estado pagina'>
@@ -185,12 +192,15 @@ export default function VarEstado() {
 
         <div className='organizarLista' >
             &nbsp;
-            {listaPlanos.map(item =>
+            {listaPlanos.map((item, pos) =>
 
-            <div className='lista'>
+            <div className='lista' key={pos}>
                 <h1> {item.plano} </h1>
                 <h2> {item.situacao} </h2>
                 <div className='cor' style={{backgroundColor: item.cor}} >&nbsp; </div>
+                 <div>
+                     <i className='fa fa-trash-can' onClick={() => removerPlano(pos)}></i>
+                 </div>
 
             </div>
 
