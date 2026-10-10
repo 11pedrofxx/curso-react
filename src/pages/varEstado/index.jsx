@@ -146,13 +146,33 @@ export default function VarEstado() {
         seteditando(pos)
 
     }
-    
 
     return (
 
         <div className='pagina-var-estado pagina'>
 
         <header className='cabecalho'><h1>Var Estado</h1></header>
+
+        <section className='secao planos'>
+
+            <input type="text" placeholder='Meu plano aqui'/>
+            <input type="text" placeholder='Situação do plano'/>
+            <input type="text" placeholder='Cor de identificação'/>
+            <button>Adicionar Plano </button>
+        
+
+        <div className='organizarLista' >
+            &nbsp;
+
+            <div className='lista'>
+                <h1>Finalizar Frei</h1>
+                <h2>Em andamento </h2>
+                <div className='cor' >&nbsp; </div>
+
+            </div>
+            
+        </div>
+        </section>
 
         <section className='secao metas'>
 
