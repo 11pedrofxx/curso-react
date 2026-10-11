@@ -176,6 +176,16 @@ export default function VarEstado() {
 
     }
 
+    function tecla(e){
+
+        if (e.key === 'Enter') {
+
+            addPlano();
+
+        }
+
+    }
+
     return (
 
         <div className='pagina-var-estado pagina'>
@@ -186,7 +196,7 @@ export default function VarEstado() {
 
             <input type="text" placeholder='Meu plano aqui' value={plano} onChange={e => setplano(e.target.value)}/>
             <input type="text" placeholder='Situação do plano' value={situacao} onChange={e => setsituacao(e.target.value)}/>
-            <input type="text" placeholder='Cor de identificação' value={cor} onChange={e => setcor(e.target.value)}/>
+            <input type="text" placeholder='Cor de identificação' value={cor} onChange={e => setcor(e.target.value)} onKeyUp={tecla}/>
             <button onClick={addPlano}>Adicionar Plano </button>
         
 
@@ -197,12 +207,12 @@ export default function VarEstado() {
             <div className='lista' key={pos}>
                 <h1> {item.plano} </h1>
                 <h2> {item.situacao} </h2>
-                <div className='cor' style={{backgroundColor: item.cor}} >&nbsp; </div>
-                 <div>
-                     <i className='fa fa-trash-can' onClick={() => removerPlano(pos)}></i>
-                 </div>
-
+                <div className='cor' style={{backgroundColor: item.cor}}>&nbsp;</div>
+            <div>
+                <i className='fa fa-trash-can' onClick={() => removerPlano(pos)}></i>
             </div>
+
+        </div>
 
             )}
             
