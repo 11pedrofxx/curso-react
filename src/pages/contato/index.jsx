@@ -1,5 +1,6 @@
 import './index.scss'
 import { Link } from 'react-router-dom'
+import Cabecalho from '../../components/cabecalho'
 
 
 export default function Contato () {
@@ -10,12 +11,7 @@ export default function Contato () {
 
         <div className='teste'> 
 
-            <header className='cabecalho'>
-                <Link to='/' ><i className='fa fa-arrow-left voltar'></i></Link>
-                <h1>Contato</h1>
-                <img className='foto' src="/assets/images/contato.png" alt="" />
-                
-            </header>
+           <Cabecalho titulo="Pagina Contato"/>
         </div>
 
         </div>

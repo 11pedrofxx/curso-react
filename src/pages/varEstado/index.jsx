@@ -3,9 +3,11 @@ import {useState } from 'react';
 import { tratarnumero } from '../../utils/tratarnumero.js';
 import calcularValorIngresso from '../../service/ingresso.js';
 
+import Cabecalho from '../../components/cabecalho/index.jsx';
+
 export default function VarEstado() {
 
-    const [contador, setContador] = useState(0); // cria a variavel de estado com const e entre [] coloca o nome da variavel de estado e o set+Nome da variavel para fazer com que seja permitido alterar ela. o useState(0) define o valor inicial do estado (neste caso, começa com o número 0).
+    
     
     const [tituloS1, settituloS1] = useState('titulo personalizavel')
 
@@ -35,18 +37,6 @@ export default function VarEstado() {
     const [cor, setcor] = useState('')
     const [listaPlanos, setlistaPlanos] = useState([])
 
-
-    function aumentar() {
-
-        setContador(contador + 1)
-
-    }
-
-    function diminuir() {
-        if (contador > 0) {
-        setContador(contador - 1)
-        }
-    }
 
    
 
@@ -190,7 +180,7 @@ export default function VarEstado() {
 
         <div className='pagina-var-estado pagina'>
 
-        <header className='cabecalho'><h1>Var Estado</h1></header>
+       <Cabecalho titulo="REACT JS || VARIAVEL DE ESTADO"/>
 
         <section className='secao planos'>
 
@@ -296,19 +286,7 @@ export default function VarEstado() {
 
         <section className='secao'>
             
-            <p>contador</p>
-            <div className='Container' >
-                <button onClick={ aumentar } > + </button>
-                
-                  {contador}
-
-                <button onClick={ diminuir } > - </button>
-
-                <input className='area' value={contador} type="text"  onChange={e => setContador(e.target.value)}/>
-
-            </div>
             
-            <div className='a' ><button onClick={ () => setContador(0)} >Reset</button></div>
 
         </section>
 

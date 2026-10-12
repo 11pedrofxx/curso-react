@@ -1,5 +1,6 @@
 import './index.scss';
 import { Link } from 'react-router-dom';
+import Cabecalho from '../../components/cabecalho';
 
 function clicou() {
   alert('Conteudo enviado com sucesso!');
@@ -22,7 +23,7 @@ export default function App() {
   return (
     <div className="pagina-app pagina">
     
-    <header className="cabecalho"><h1>REACT JS</h1></header>
+    <Cabecalho titulo="Bem Vindo(a) Ao APP"/>
 
     <section className="secao">
 
