@@ -1,0 +1,29 @@
+.pagina{
+
+    .secao.metas {
+    width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    ul{
+
+      list-style-type: none;
+    }
+   
+    .minhasmetas{
+
+      background-color: gainsboro;
+      border-radius: 5px;
+      width: 200px;
+      min-height: 100px;
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      text-align: center;
+
+    }
+    
+  }
+
+}

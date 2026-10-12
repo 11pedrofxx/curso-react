@@ -1,23 +1,8 @@
 import './index.scss';
 import { Link } from 'react-router-dom';
 import Cabecalho from '../../components/cabecalho';
+import Comp from '../comp';
 
-function clicou() {
-  alert('Conteudo enviado com sucesso!');
-}
-
-function mudou(e) {
-
-  let novovalor = e.target.value;
-  alert('Você alterou o valor do input para: ' + novovalor);
-
-  if (novovalor === '') {
-
-    alert('Você apagou o valor do input!');
-
-  }
-
-}
 
 export default function App() {
   return (
@@ -25,26 +10,13 @@ export default function App() {
     
     <Cabecalho titulo="Bem Vindo(a) Ao APP"/>
 
-    <section className="secao">
-
-      <h1>Curso de React JS</h1>
-      <h1 className="Style"><Link to="/Contato">Ir para contato</Link></h1>
-
-      <input onChange={mudou} placeholder='Digite aqui' type="text"/>
-      <button onClick={clicou}>Enviar</button>
-
-      <br />  
-      <select>
-        <option>Item 1</option>
-        <option>Item 2</option>
-        <option>Item 3</option>
-      </select>
-
-    </section>
-
-    <Link to="/Eventos">Ir para eventos</Link>
+    <section className='secao'>
+      <Link to="/Eventos">Ir para eventos</Link>
+        <br />
+      <Link to={'varEstado'}>Ir para variavel de estado</Link>
       <br />
-    <Link to={'varEstado'}>Ir para variavel de estado</Link>
+      <Link to={'comp'}>Ir para componentes</Link>
+    </section>
 
     </div>
   );
