@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Contador from '../../components/contador';
 import Cabecalho from '../../components/cabecalho';
 import ItensMeta from '../../components/ItensMeta';
+import CartaoFilme from '../../components/cartaoFilme';
 
 
 export default function Comp () {
@@ -11,6 +12,11 @@ export default function Comp () {
     const[novameta, setnovameta] = useState('');
     const [listaMetas, setlistaMetas] = useState([]);
     const [editando, seteditando] = useState(-1)
+
+    const [NomeFilme, setNomeFilme] = useState('');
+    const [ClassificacaoFilme, setClassificacaoFilme] = useState('');
+    const [urlFilme, seturlFilme] = useState('');
+    const [ListaFilmes, setListaFilmes] = useState([]);
 
     function addMeta() {
     
@@ -57,6 +63,23 @@ export default function Comp () {
 
     }
 
+    function addFilme() {
+        if (NomeFilme == '' || ClassificacaoFilme == '' || urlFilme == '') {
+            alert('Preencha todos os campos')
+            return;
+        }
+        let novoFilme = {
+            nome: NomeFilme,
+            classificacao: ClassificacaoFilme,
+            url: urlFilme
+        }
+        
+        setListaFilmes([...ListaFilmes, novoFilme])
+        setNomeFilme('');
+        setClassificacaoFilme('');
+        seturlFilme('');
+    }
+
     return(
 
         <div className='pagina-comp pagina'>
@@ -87,6 +110,23 @@ export default function Comp () {
                     </ul>
                 </div>
             </section>
+        </section>
+
+        <section className='secao filmes'>
+            <h1>Catálogo de filmes</h1>
+            <div className='entradas'>
+                <input type="text" placeholder='Nome do Filme' value={NomeFilme}  onChange={e => setNomeFilme(e.target.value)}/>
+                <input type="text" placeholder='Classificação' value={ClassificacaoFilme} onChange={e => setClassificacaoFilme(e.target.value)}/>
+                <input type="text" placeholder='URL da Capa' value={urlFilme} onChange={e => seturlFilme(e.target.value)}/>
+                <button onClick={addFilme} >Adicionar</button>
+            </div>
+        </section>
+
+        <section className='secao cartaz'>
+            {ListaFilmes.map( item =>
+                <CartaoFilme item={item}
+                />
+            )}
         </section>
 
         </div>

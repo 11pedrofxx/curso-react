@@ -13,7 +13,7 @@
    
     .minhasmetas{
 
-      background-color: gainsboro;
+      background-color: gainsboro;    
       border-radius: 5px;
       width: 200px;
       min-height: 100px;
@@ -26,4 +26,41 @@
     
   }
 
+  .secao.filmes {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 600px;
+
+    .entradas {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 400px;
+
+      input {
+        width: 100%;
+        padding: 8px 12px;
+        box-sizing: border-box;
+      }
+
+      button {
+        width: 68%;
+        padding: 8px;
+        cursor: pointer;
+      }
+    }
+  }
+  .secao.cartaz {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: flex-start;
+    gap: 15px;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
 }
