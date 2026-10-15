@@ -15,7 +15,8 @@ export default function App() {
         <br />
       <Link to={'varEstado'}>Ir para variavel de estado</Link>
       <br />
-      <Link to={'comp'}>Ir para componentes</Link>
+      <Link to={'comp'}>Ir para componentes</Link> <br />
+      <Link to={'renderizacao'}>Ir para Renderização Condicional</Link>
     </section>
 
     </div>
