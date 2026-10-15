@@ -16,6 +16,8 @@ export default function Comp () {
     const [NomeFilme, setNomeFilme] = useState('');
     const [ClassificacaoFilme, setClassificacaoFilme] = useState('');
     const [urlFilme, seturlFilme] = useState('');
+    const [EstreiaFilme, setEstreiaFilme] = useState('');
+    const [DestaqueFilme, setDestaqueFilme] = useState(true);
     const [ListaFilmes, setListaFilmes] = useState([]);
 
     function addMeta() {
@@ -71,7 +73,9 @@ export default function Comp () {
         let novoFilme = {
             nome: NomeFilme,
             classificacao: ClassificacaoFilme,
-            url: urlFilme
+            url: urlFilme,
+            estreia: EstreiaFilme,
+            destaque: DestaqueFilme
         }
         
         setListaFilmes([...ListaFilmes, novoFilme])
@@ -118,6 +122,11 @@ export default function Comp () {
                 <input type="text" placeholder='Nome do Filme' value={NomeFilme}  onChange={e => setNomeFilme(e.target.value)}/>
                 <input type="text" placeholder='Classificação' value={ClassificacaoFilme} onChange={e => setClassificacaoFilme(e.target.value)}/>
                 <input type="text" placeholder='URL da Capa' value={urlFilme} onChange={e => seturlFilme(e.target.value)}/>
+                <input type="text" placeholder='Estreia do Filme' value={EstreiaFilme} onChange={e => setEstreiaFilme(e.target.value)}/>
+                <div className='destaque'>
+                    <label htmlFor="">Filme em destaque? </label>
+                    <input type="checkbox" value={DestaqueFilme} onChange={e => setDestaqueFilme(e.target.checked)}/>
+                </div>
                 <button onClick={addFilme} >Adicionar</button>
             </div>
         </section>

@@ -40,6 +40,15 @@
       width: 100%;
       max-width: 400px;
 
+      .destaque{
+        display: flex;
+        flex-direction: row;
+          input {
+            width: 20px;
+            margin: 4px;
+          }
+      }
+
       input {
         width: 100%;
         padding: 8px 12px;

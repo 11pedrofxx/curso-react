@@ -21,12 +21,23 @@ export default function CartaoFilme(props){
     }
 
     return(
-    <div className='comp-cardFilme'>
-        <img src={props.item.url} alt={props.item.nome} />
-        <p>{props.item.nome}</p>
-        <div className={'classificacao ' + identificarclassificacao()}>{props.item.classificacao}</div>
-    </div>
+        <div className='comp-cardFilme'>
+            <img src={props.item.url} alt={props.item.nome} />
+            
+            <p>{props.item.nome}</p>
 
+            {props.item.estreia != '' &&
+            <div className='data'>
+                {props.item.destaque == true &&
+                <i className="fa-solid fa-star"></i>
+                }
+                Estreia: {props.item.estreia}
+            </div>
+            }
+
+            <div className={'classificacao ' + identificarclassificacao()}>
+                {props.item.classificacao}
+            </div>
+        </div>
     );
-
 }

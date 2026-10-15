@@ -14,7 +14,7 @@ export default function RenderizacaoCondicional() {
             <Cabecalho/>
             <section className='secao'>
                 <h1>Biscoito da sorte</h1>
-                <button onClick={exibir} >{exibirMsg == true ? 'Fechar' : 'Abrir'}</button>
+                <button onClick={exibir} >{exibirMsg == false ? 'Abrir' : 'Fechar'}</button>
 
                 {exibirMsg == true &&
 
