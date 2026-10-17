@@ -1,4 +1,23 @@
 .pagina-efeitos {
 
 
+    .media{
+        display: flex;
+        align-items: center;
+        
+    }
+
+    .result-aluno{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .result{
+        background-color: gray;
+        border-radius: 6px;
+        width: 220px;
+        text-align: center;
+
+    }
+    }
+
 }
