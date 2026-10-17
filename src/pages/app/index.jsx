@@ -17,7 +17,8 @@ export default function App() {
       <br />
       <Link to={'comp'}>Ir para componentes</Link> <br />
       <Link to={'renderizacao'}>Ir para Renderização Condicional</Link> <br />
-      <Link to={'efeitos'}>Ir para efeitos</Link>
+      <Link to={'efeitos'}>Ir para efeitos</Link> <br />
+      <Link to={'api'}>Ir para chamada em API</Link>
 
     </section>
 

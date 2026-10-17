@@ -9,6 +9,7 @@ import VarEstado from './pages/varEstado/index.jsx';
 import Comp from './pages/comp/index.jsx';
 import RenderizacaoCondicional from './pages/RenderizacaoCond/index.jsx';
 import Efeitos from './pages/efeitos/index.jsx';
+import Api from './pages/chamadaApi/index.jsx';
 
 export default function roteacao() {
 
@@ -25,6 +26,7 @@ export default function roteacao() {
                 <Route path = '/comp' element = {<Comp />} />
                 <Route path = '/renderizacao' element = {<RenderizacaoCondicional />} />
                 <Route path = '/efeitos' element = {<Efeitos />} />
+                <Route path = '/api' element = {<Api />} />
 
                 <Route path='*' element ={<NaoEncontrado />} />
             </Routes>
