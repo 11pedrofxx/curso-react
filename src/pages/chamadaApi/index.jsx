@@ -2,12 +2,19 @@ import './index.scss'
 import Cabecalho from '../../components/cabecalho'
 import { useState } from 'react';
 import axios from 'axios';
+import CardOMDB from '../../components/CardOmdb';
 
 export default function Api() {
     const [cep, setcep] = useState('');
     const [resposta, setresposta] = useState('');
     const [buscaFilme, setbuscaFilme] = useState('')
     const [listaFilmes, setListaFilmes] = useState([]);
+
+    function tecla (e) {
+        if (e.key == 'Enter') {
+            buscarFilmes()
+        } 
+    }
 
     async function BuscarCEP() {
         let url = `https://viacep.com.br/ws/${cep}/json/`
@@ -43,11 +50,19 @@ export default function Api() {
                 <h1>Catálogo de Filmes</h1>
 
                 <div className='entradas'>
-                    <input type="text" placeholder='Nome do Filme' value={buscaFilme} onChange={e => setbuscaFilme(e.target.value)} />
+                    <input type="text" placeholder='Nome do Filme' value={buscaFilme} onChange={e => setbuscaFilme(e.target.value)} onKeyUp={tecla} />
                     <button onClick={buscarFilmes}>Buscar</button>
                 </div>
 
-                <table>
+                &nbsp;
+
+                <div className='cards'>
+                    {listaFilmes.map(item => 
+                        <CardOMDB item={item}/>
+                    )}
+                </div>
+
+                {/* <table>
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -64,7 +79,7 @@ export default function Api() {
                             </tr>
                         ))}
                     </tbody>
-                </table>
+                </table> */}
             </section>
 
             <section className='secao'>
